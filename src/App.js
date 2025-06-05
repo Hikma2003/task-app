@@ -9,9 +9,9 @@ function App() {
   const [tasks, setTasks] = useState(initialTasks);
   const [newTask, setNewTask] = useState("");
 
-  // Add task handler
+  // Add task
   const addTask = () => {
-    if (newTask.trim() === "") return; // validation
+    if (newTask.trim() === "") return;
     const task = {
       id: tasks.length + 1,
       title: newTask,
@@ -21,23 +21,22 @@ function App() {
     setNewTask("");
   };
 
-  // Toggle complete handler
+  // Mark task completed/uncompleted
   const toggleComplete = (id) => {
     setTasks(
-      tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      )
     );
   };
 
-  // Delete task handler
+  // Delete task
   const deleteTask = (id) => {
-    setTasks(tasks.filter((t) => t.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
-    <div
-      className="container"
-      style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}
-    >
+    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
       <h1>Task List</h1>
       <input
         type="text"
@@ -58,7 +57,7 @@ function App() {
         {tasks.map((task) => (
           <li
             key={task.id}
-            style={{ margin: "10px 0", display: "flex", alignItems: "center" }}
+            style={{ display: "flex", alignItems: "center", margin: "10px 0" }}
           >
             <input
               type="checkbox"
