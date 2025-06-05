@@ -14,3 +14,11 @@ This is a simple React-based Task Manager application built as part of a fronten
 
 - React (via Create React App)
 - Inline CSS (no external styling library)
+
+## 🚀 How to Run
+
+1. **Install dependencies** (run this in terminal):
+
+   ```bash
+   npm install
+   ```
